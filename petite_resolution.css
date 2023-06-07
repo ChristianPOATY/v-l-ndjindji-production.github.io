@@ -1,0 +1,46 @@
+@media all and (min-width: 1024px) and (max-width: 1280px)
+{
+	#bloc_page
+	{
+	width: auto;
+	}
+	nav
+	{
+	width: auto;
+	text-align: left;
+	} 
+	nav li
+	{
+	display: block;
+	padding-left: 4px;
+	} 
+	nav a
+	{
+	font-size: 1.1em;
+	} 
+	nav a:hover
+	{
+	border-bottom: 0;
+	}
+	article, aside
+	{
+	width: auto;
+	display: block;
+	margin-bottom: 15px;
+	} 
+	#fleche_bulle
+	{
+	display: none;
+	} 
+	#photo_zozor img
+	{
+	width: 110px;
+	float: right;
+	}
+	margin-left: 15px;
+	} 
+	aside p:last-child
+	{
+	text-align: center;
+	}
+	

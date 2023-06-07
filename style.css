@@ -1,0 +1,222 @@
+/* Header */
+header
+{
+background: #171968;
+color : white;
+} 
+#titre_principal
+{
+display: inline-block;
+} 
+header h1
+{
+font-family: 'BallparkWeiner', serif;
+font-size: 2.5em;
+font-weight: normal;
+} 
+#logo, header h1
+{
+display: inline-block;
+margin-bottom: 0px;
+} 
+header h2
+{
+font-family: Dayrom, serif;
+font-size: 1.1em;
+margin-top: 0px;
+font-weight: normal;
+}
+font-size: 2.5em;
+font-weight: normal;
+} 
+#logo, header h1
+{
+display: inline-block;
+margin-bottom: 0px;
+} 
+header h2
+{
+font-family: Dayrom, serif;
+font-size: 1.1em;
+margin-top: 0px;
+font-weight: normal;
+}
+/* Navigation */
+nav
+{
+display: inline-block;
+width: 100%;
+text-align: right;
+} 
+nav ul
+{
+list-style-type: none;
+} 
+nav li
+{
+display: inline-block;
+margin-right: 15px;
+} 
+nav a
+{
+font-size: 1.3em;
+color: #181818;
+padding-bottom: 3px;
+text-decoration: none;
+color : white;
+} 
+nav a:hover
+{
+color: #760001;
+border-bottom: 3px solid #760001;
+}
+.bouton_rouge
+{
+display: inline-block;
+height: 25px;
+position: absolute;
+right: 5px;
+bottom: 5px;
+background: url('images/fond_degraderouge.png') repeat-x;
+border: 1px solid #760001;
+border-radius: 5px;
+font-size: 1.2em;
+text-align: center;
+padding: 3px 8px 0px 8px;
+color: white;
+text-decoration: none;
+} 
+.bouton_rouge img
+{
+border: 0;
+}
+/* Corps */
+} 
+.ico_categorie
+{
+vertical-align: middle;
+margin-right: 8px;
+} 
+p
+{
+font-size: 0.8em;
+} 
+/* Eléments principaux de la page */
+body
+{
+background: #ebe0d0;
+font-family: 'Trebuchet MS', Arial, sans-serif;
+color: #181818;
+} 
+#bloc_page
+{
+width: 100%;
+margin: auto;
+} 
+section h1, footer h1, nav a
+{
+font-family: Dayrom, serif;
+font-weight: normal;
+text-transform: uppercase;
+}
+/* Footer */
+footer
+{
+background: #6217dc;
+padding-top: 25px;
+} 
+footer p, footer ul
+{
+font-size: 0.8em;
+} 
+footer h1
+{
+font-size: 1.1em;
+} 
+#tweet, #mes_photos, #mes_amis
+{
+display: inline-block;
+vertical-align: top;
+} 
+#tweet
+{
+width: 28%;
+} 
+#mes_photos
+{
+width: 35%;
+} 
+#mes_amis
+{
+width: 31%;
+} 
+#mes_photos img
+{
+border: 1px solid #181818;
+margin-right: 2px;
+} 
+#mes_amis ul
+{
+display: inline-block;
+vertical-align: top;
+margin-top: 0;
+width: 48%;
+list-style-image: #8b8b12;
+padding-left: 2px;
+} 
+#mes_amis a
+{
+text-decoration: none;
+color: #760001;
+}
+element
+{
+display: inline;
+zoom: 1;
+}
+/* Définition des polices personnalisées */
+@font-face
+{
+font-family: 'BallparkWeiner';
+src: url('polices/ballpark.eot');
+src: url('polices/ballpark.eot?#iefix') format('embeddedopentype'),
+url('polices/ballpark.woff') format('woff'),
+url('polices/ballpark.ttf') format('truetype'),
+url('polices/ballpark.svg#BallparkWeiner') format('svg');
+font-weight: normal;
+font-style: normal;
+} 
+@font-face
+{
+font-family: 'Dayrom';
+src: url('polices/dayrom.eot');
+src: url('polices/dayrom.eot?#iefix') format('embeddedopentype'),
+url('polices/dayrom.woff') format('woff'),
+url('polices/dayrom.ttf') format('truetype'),
+url('polices/dayrom.svg#Dayrom') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+input[type="text"] {
+-webkit-appearance:textfield;
+}
+TABLE {width: 100%; border-width: 2; border-style:double; text-align: center}
+CAPTION {font-size: 24px; font-weight: bold; text-align: center;}
+TH {font-size: 20pt; border-width: 1; border-style: solid; text-align: center}
+TD {font-size: 14pt; border-width: 1; border-style: solid; text-align: center}
+TD.droit {font-size: 14pt; text-align: right}
+/* styleaudit2.css : Feuille de style à propriétés visuelles
+et auditives */
+@media screen, speech (
+body {color: #000000 ; background: #FFFFFF; text-align: left}
+#bloc_page {margin-left: 10%; font-family: monospace; font-style: italic; color: #000080}
+#bloc_page {margin-left: 0px;}
+#bloc_page {font-variant: small-caps}
+#bloc_page {speak: none}
+#bloc_page {speak: normal; voice-family: male}
+#bloc_page {speak: normal; voice-family: female; speech-rate: slow; richness: 40%; pitch: hight}
+#bloc_page {speak: normal; voice-family: male; richness: 80%; pitch: low}
+#bloc_page {speak: normal; voice-family: female; speech-rate: slow}
+#bloc_page {speak: normal; voice-family: male; volume: 75%}
+)
+P.legal {font-size: 8pt; font-variant: small-caps}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title>Site médiatique comportant des vidéos</title>
+<meta charset="UTF-8">
+<meta name="author" content="Christian-POATY">
+<meta name="description" content="Ce site un site mediatique informationnel">
+<meta name="keywords" content="Médias, vidéos, audios,telechargement">
+<!-- Pour une application web seulement -->
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="style.css" media="all">
+<link rel="stylesheet" media="all and (max-width: 1280px)" href="petite_resolution.css"> 
+<link rel="stylesheet" href="audio-player.css" type="text/css">
+<link rel="icon" href="icone.gif" type="image/gif" sizes="32x32">
+<link rel="alternate" type="application/rss+xml" href="flux.rss" title="Actualités">
+<link rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/fr/">
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" href="style_ie.css">
+<![endif]-->
+</head>
+<body>
+<div id="bloc_page">
+<header role="banner">
+<div id="titre_principal">
+<img src="Logo.png" alt="Logo du site" id="logo" width="90" height="90">
+<h1>Média en ligne</h1>
+<h2>V-L-Ndjindji-Production</h2>
+</div>
+<form action="http://www.google.be/search" method="get">
+Rechercher :
+<input type="text" name="q">
+<input type="submit" value="Rechercher !">
+</form>
+<nav>
+<ul>
+<li><a href="accueil.html">accueil</a></li>
+<li><a href="videos.html">videos</a></li>
+<li><a href="audios.html">audios</a></li>
+<li><a href="telechargement.html">telechargement</a></li>
+</ul>
+</nav>
+</header>
+<audio src="mamusique.oga">
+<a href="mamusique.oga">Télécharger le fichier son</a>
+</audio>
+<audio>
+<source src="mamusique.oga" type="audio/ogg">
+<source src="mamusique.mp3" type="audio/mpeg">
+<source src="mamusique.aac" type="audio/mp4">
+Ce navigateur ne supporte pas l'élément <code>audio</code>
+</audio>
+<audio id="monaudio" controls>
+<source src="space.mp3" type="audio/mp3">
+<source src="space.ogg" type="audio/ogg">
+<source src="space.wav" type="audio/wav">
+</audio>
+<div id="player">
+<input type="button" value="Lecture" class="play">
+<input type="button" value="Pause" class="pause">
+<span class="info">0:00</span>
+<span class="track"><span></span></span>
+<input type="button" value="Volume" class="audible">
+<input type="button" value="Muet" class="muted">
+</div>
+<br/>
+<hr />
+<P class="legal" align="center">&copy; 2023 Victor LOUEMBE et Christian POATY –Tous droits r&eacute;serv&eacute;s</P>
+<br/>
+<ADDRESS align="center">
+<A href="mailto:victorlouembe77@gmail.com">Victor LOUEMBE</A> et
+<A href="mailto:christianpoaty1@gmail.com">Christian POATY</A> sont les personnes &agrave; contacter pour tout
+<A href="probleme">probl&egrave;me</A> rencontr&eacute; sur le site.
+</ADDRESS>
+<br/>
+<footer>
+<div id="tweet">
+<h1>Contactez</h1>
+<p><address>Christian-POATY Concepteur du site: +242057481986</address><address>WENDA : +242069326796</address></p>
+</div>
+<div id="mes_photos">
+<h1>Contacts</h1>
+<p><address>Franck : +242065243570</address><address>Victor LOUEMBE : +242066505839</p>
+</div>
+<div id="mes_amis">
+<h1>Racourcis</h1>
+<ul>
+<li><a href="videos.html">Vidéos</a></li>
+<li><a href="audios.html">Audios</a></li>
+</ul>
+<ul>
+<li><a href="accueil.html">Accueil</a></li>
+<li><a href="telechargement.html">Téléchargement</a></li>
+</ul>
+</div>
+</footer>
+</div>
+<script src ="script1.js"></script>
+</body>
+</html>

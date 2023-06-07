@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title>Site médiatique comportant des vidéos</title>
+<meta charset="UTF-8">
+<meta name="author" content="Christian-POATY">
+<meta name="description" content="Ce site est un site mediatique et informationnel">
+<meta name="keywords" content="Médias, vidéos, audios,telechargement">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="style.css" media="all">
+<link rel="stylesheet" media="all and (max-width: 1280px)" href="petite_resolution.css"> <!-- Pour ceux qui ont une résolution inférieure à 1280px -->
+<link rel="icon" href="icone.gif" type="image/gif" sizes="32x32">
+<link rel="alternate" type="application/rss+xml" href="flux.rss" title="Actualités">
+<link rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/fr/">
+<style>
+input[type="submit"] {
+margin-left: 10px;
+width: 50px; height: 26px;
+}
+#search {
+padding: 2px 4px;
+width: 220px; height: 22px;
+border: 1px solid #AAA;
+}
+#search:hover, #search:focus {
+border-color: #777;
+}
+#results {
+display: none;
+width: 228px;
+border: 1px solid #AAA;
+border-top-width: 0;
+background-color: #FFF;
+}
+#results div {
+width: 220px;
+padding: 2px 4px;
+text-align: left;
+border: 0;
+background-color: #FFF;
+}
+#results div:hover, .result_focus {
+background-color: #DDD !important;
+}
+</style>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" href="style_ie.css">
+<![endif]-->
+</head>
+<body>
+<div id="bloc_page">
+<header role="banner">
+<div id="titre_principal">
+<img src="Logo.png" alt="Logo mediatique" id="logo" width="150" height="100">
+<h1>Média en ligne</h1>
+<h2>V-L-Ndjindji-Production</h2>
+</div>
+<form action="http://www.google.be/search" method="get">
+Rechercher :
+<input type="text" name="q">
+<input type="submit" value="Lancer !">
+</form>
+<nav>
+<ul>
+<li><a href="accueil.html">accueil</a></li>
+<li><a href="videos.html">videos</a></li>
+<li><a href="audios.html">audios</a></li>
+<li><a href="telechargement.html">telechargement</a></li>
+</ul>
+</nav>
+</header>
+<input id="search" type="text" autocomplete="off">
+<div id="results"></div>
+<section>
+<h1><img id="myImg" src="IMG_20230115_95117.jpg" style="opacity: 1" alt="Catégorie voyage" class="ico_categorie" width="150" height="150">Bienvenue sur notre site</h1>
+<p>Nous mettons à votre dispositions des services de qualités.</p>
+<p>Ce site est médiatisé et informatisé !</p>
+<p>Pour tout besoin de vous combler, vous informez et vous distraires; venez consulter notre application! Merci !</p>
+</section>
+<p><button type="button" onclick="sendDSL()">Lancez le script</button></p>
+<br/>
+<hr />
+<P class="legal" align="center">&copy; 2023 Victor LOUEMBE et Christian POATY –Tous droits r&eacute;serv&eacute;s</P>
+<br/>
+<ADDRESS align="center">
+<A href="mailto:victorlouembe77@gmail.com">Victor LOUEMBE</A> et
+<A href="mailto:christianpoaty1@gmail.com">Christian POATY</A> sont les personnes &agrave; contacter pour tout
+<A href="probleme">probl&egrave;me</A> rencontr&eacute; sur le site.
+</ADDRESS>
+<br/>
+<footer>
+<div id="tweet">
+<h1>Contacts</h1>
+<p><address>Christian-POATY Concepteur du site: +242057481986</address><address>WENDA : +242069326796</address></p>
+</div>
+<div id="mes_photos">
+<h1>Contacts</h1>
+<p><address>Franck : +242065243570</address><address>Victor LOUEMBE : +242066505839</p>
+</div>
+<div id="mes_amis">
+<h1>Racourcis</h1>
+<ul>
+<li><a href="videos.html">Vidéos</a></li>
+<li><a href="audios.html">Audios</a></li>
+</ul>
+<ul>
+<li><a href="accueil.html">Accueil</a></li>
+<li><a href="telechargement.html">Téléchargement</a></li>
+</ul>
+</div>
+</footer>
+</div>
+<p><SCRIPT type="txt/JavaScript" src="script1.js">message();</SCRIPT></p>
+<script>
+function sendDSL() {
+var scriptElement = document.createElement('script');
+scriptElement.src = 'dsl_script.php?nick=' + prompt('Quel est votre pseudo ?');
+document.body.appendChild(scriptElement);
+}
+function receiveMessage(message) {
+alert(message);
+}
+</script>
+<script>
+(function() {
+var searchElement = document.getElementById('search'),
+results = document.getElementById('results'),
+selectedResult = -1, // Permet de savoir quel résultat est sélectionné : -1 signifie « aucune sélection »
+previousRequest, // On stocke notre précédente requête dans cette variable JavaScript
+previousValue = searchElement.value;
+// On fait de même avec la précédente valeur
+function getResults(keywords) { // Effectue une requête et récupère les résultats
+var xhr = new XMLHttpRequest();
+xhr.open('GET', './search.php?s='+ encodeURIComponent(keywords));
+xhr.onreadystatechange = function() {
+if (xhr.readyState == 4 && xhr.status == 200) {
+displayResults(xhr.responseText);
+}
+};
+xhr.send(null);
+return xhr;
+}
+function displayResults(response) {
+// Affiche les résultats d'une requête
+results.style.display = response.length ?
+'block' : 'none';
+// On cache le conteneur si on n'a pas de résultats
+if (response.length) { // On ne modifie les résultats que si on en a obtenu
+response = response.split('|');
+var responseLen = response.length;
+results.innerHTML = ''; // On vide les résultats
+for (var i = 0, div ; i < responseLen ; i++) {
+div = results.appendChild(document.createElement('div'));
+div.innerHTML = response[i];
+div.onclick = function() {
+chooseResult(this);
+};
+} 
+} 
+}
+function chooseResult(result) { // Choisit un des résultats d'une requête et gère tout ce qui y est attaché
+searchElement.value = previousValue = result.innerHTML; // On change le contenu du champ de recherche et on enregistre en tant que précédente valeur
+results.style.display = 'none'; // On cache les résultats
+result.className = ''; // On supprime l'effet de focus
+selectedResult = -1; // On remet la sélection à zéro
+searchElement.focus(); // Si le résultat a été choisi par le biais d'un clic, alors le focus est perdu, donc on le réattribue
+}
+searchElement.onkeyup = function(e) {
+e = e || window.event; // On n'oublie pas la compatibilité pour IE
+var divs =
+results.getElementsByTagName('div');
+if (e.keyCode == 38 && selectedResult > -1) 
+{ // Si la touche pressée est la flèche « haut »
+divs[selectedResult--].className = '';
+if (selectedResult > -1) { // Cette condition évite une modification de childNodes[-1], qui n'existe pas, bien entendu
+divs[selectedResult].className = 'result_focus';
+} 
+}
+else if (e.keyCode == 40 && selectedResult < divs.length -1) 
+{ // Si la touche pressée est la flèche « bas »
+results.style.display = 'block'; // On affiche les résultats
+if (selectedResult > -1) { // Cette condition évite une modification de childNodes[-1], qui n'existe pas, bien entendu
+divs[selectedResult].className = '';
+}
+divs[++selectedResult].className = 'result_focus';
+}
+else if (e.keyCode == 13 && selectedResult > -1) { // Si la touche pressée est « Entrée »
+chooseResult(divs[selectedResult]);
+}
+else if (searchElement.value != previousValue) { // Si le contenu du champ de recherche a changé
+previousValue = searchElement.value;
+if (previousRequest && previousRequest.readyState < 4) {
+previousRequest.abort(); // Si on a toujours une requête en cours, on l'arrête
+}
+previousRequest =
+getResults(previousValue); // On stocke la nouvelle requête
+selectedResult = -1; // On remet la sélection à zéro à chaque caractère écrit
+}
+};
+})();
+</script>
+<script src ="script1.js"></script>
+</body>
+</html>

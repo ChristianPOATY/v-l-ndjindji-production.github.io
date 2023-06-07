@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title>Site médiatique comportant des vidéos</title>
+<meta charset="UTF-8">
+<meta name="author" content="Christian-POATY">
+<meta name="description" content="Ce site est un site mediatique et informationnel">
+<meta name="keywords" content="Médias, vidéos, audios,telechargement">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="style.css" media="all">
+<link rel="stylesheet" media="all and (max-width: 1280px)" href="petite_resolution.css"> <!-- Pour ceux qui ont une résolution inférieure à 1280px -->
+<link rel="icon" href="icone.gif" type="image/gif" sizes="32x32">
+<link rel="alternate" type="application/rss+xml" href="flux.rss" title="Actualités">
+<link rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/fr/">
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" href="style_ie.css">
+<![endif]-->
+</head>
+<body>
+<div id="bloc_page">
+<header role="banner">
+<div id="titre_principal">
+<img src="Logo.png" alt="Logo du site" id="logo" width="90" height="90">
+<h1>Média en ligne</h1>
+<h2>V-L-Ndjindji-Production</h2>
+</div>
+<form action="http://www.google.be/search" method="get">
+Rechercher :
+<input type="text" name="q">
+<input type="submit" value="Rechercher !">
+</form>
+<nav>
+<ul>
+<li><a href="accueil.html">accueil</a></li>
+<li><a href="videos.html">videos</a></li>
+<li><a href="audios.html">audios</a></li>
+<li><a href="telechargement.html">telechargement</a></li>
+</ul>
+</nav>
+</header>
+<input id="file" type="file" multiple>
+<div id="prev">retour</div>
+<section>
+<h1><img src="IMG_20230115_95117.jpg" style="opacity: 1" alt="Catégorie voyage" class="ico_categorie" width="150" height="150">Bienvenue sur notre site</h1>
+<p>Nous mettons à votre dispositions des services de qualités.</p>
+<p>Ce site est médiatisé et informatisé !</p>
+<p>Pour tout besoin de vous combler, vous informez et vous distraires; venez consulter notre application! Merci !</p>
+</section>
+<br/>
+<form id="myForm" method="post" action="request.php" target="myFrame">
+<div>
+<label for="nick">Votre pseudo :</label>
+<input type="text" id="nick" name="nick">
+<input type="button" value="Envoyer" onclick="sendForm();">
+</div>
+</form>
+<br/>
+<iframe src="file.html" name="myFrame" id="myFrame"></iframe>
+<form id="uploadForm" enctype="multipart/form-data" action="upload.php" target="uploadFrame" method="post">
+<label for="uploadFile">Image :</label>
+<input id="uploadFile" name="uploadFile" type="file">
+<input id="uploadSubmit" type="submit" value="Upload !">
+</form>
+<br/>
+<div id="uploadInfos">
+<div id="uploadStatus">Aucun upload en cours</div>
+<iframe id="uploadFrame" name="uploadFrame"></iframe>
+</div>
+<p><SCRIPT type="txt/JavaScript" src="script1.js">message();</SCRIPT></p>
+<script>
+function uploadEnd(error, path) {
+if (error === 'OK') {
+document.getElementById('uploadStatus').innerHTML = '<a href="' + path + '">Upload done !</a><br /><br /><a href="' + path + '"><img src="' + path + '" /></a>';
+} else {
+document.getElementById('uploadStatus').innerHTML = error;
+} 
+}
+document.getElementById('uploadForm').addEventListener('submit', function() {
+document.getElementById('uploadStatus').innerHTML = 'Loading...';
+}, true);
+</script>
+<?php
+$error = NULL;
+$filename = NULL;
+if (isset($_FILES['uploadFile']) && $_FILES['uploadFile']['error'] === 0) {
+$filename = $_FILES['uploadFile']['name'];
+$targetpath = getcwd() . '/' . $filename;
+// On stocke le chemin où enregistrer le fichier
+// On déplace le fichier depuis lerépertoire temporaire vers $targetpath
+if (@move_uploaded_file($_FILES['uploadFile']['tmp_name'], $targetpath)) { // Si ça fonctionne
+$error = 'OK';
+} else { // Si ça ne fonctionne pas
+$error = "Échec de l'enregistrement !";
+}
+} else {
+$error = 'Aucun fichier réceptionné !';
+}
+// Et pour finir, on écrit l'appel vers la fonction uploadEnd :
+?>
+<P align="center">
+<A href="mailto:christianpoaty1@gmail.com" style="text-decoration: none;">Ecrivez-moi !</A>.
+</P>
+<br/>
+<hr />
+<P class="legal" align="center">&copy; 2023 Victor LOUEMBE et Christian POATY –Tous droits r&eacute;serv&eacute;s</P>
+<br/>
+<ADDRESS align="center">
+<A href="mailto:victorlouembe77@gmail.com">Victor LOUEMBE</A> et
+<A href="mailto:christianpoaty1@gmail.com">Christian POATY</A> sont les personnes &agrave; contacter pour tout
+<A href="probleme">probl&egrave;me</A> rencontr&eacute; sur le site.
+</ADDRESS>
+<br/>
+<footer>
+<div id="tweet">
+<h1>Contactez</h1>
+<p><address>Christian-POATY Concepteur du site: +242057481986</address><address>WENDA : +242069326796</address></p>
+</div>
+<div id="mes_photos">
+<h1>Contacts</h1>
+<p><address>Franck : +242065243570</address><address>Victor LOUEMBE : +242066505839</p>
+</div>
+<div id="mes_amis">
+<h1>Racourcis</h1>
+<ul>
+<li><a href="videos.html">Vidéos</a></li>
+<li><a href="audios.html">Audios</a></li>
+</ul>
+<ul>
+<li><a href="accueil.html">Accueil</a></li>
+<li><a href="telechargement.html">Téléchargement</a></li>
+</ul>
+</div>
+</footer>
+</div>
+<script src ="script1.js"></script>
+<script>
+window.top.window.receiveData("<?php echo htmlentities($_POST['nick']); ?>");
+</script>
+<script>
+window.top.window.uploadEnd("<?php echo $error; ?>", "<?php echo $filename; ?>");
+</script>
+</body>
+</html>
